@@ -21,7 +21,7 @@ namespace UseCases
             var increaseValue = currentSalary * AnnualIncrease;
             var newSalary = currentSalary + increaseValue;
             
-            return new Tuple<double, double>(newSalary, increaseValue);
+            return new Tuple<double, double>(Math.Round(newSalary, 2), Math.Round(increaseValue, 2));
         }
     }
 }
