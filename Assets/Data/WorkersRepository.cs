@@ -2,8 +2,8 @@
 
 namespace Data
 {
-    public interface WorkersRepository
+    public interface IWorkersRepository
     {
-        IEnumerable<Workers> LoadWorkers();
+        IEnumerable<Worker> LoadWorkers();
     }
 }

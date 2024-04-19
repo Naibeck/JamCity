@@ -1,20 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Data.Sources;
 
 namespace Data
 {
-    public class WorkersRepositoryImpl : WorkersRepository
+    public class WorkersRepositoryImpl : IWorkersRepository
     {
 
-        private WorkerDataSource _workerDataSource;
+        private IWorkerDataSource _workerDataSource;
         
-        public WorkersRepositoryImpl(WorkerDataSource dataSource)
+        public WorkersRepositoryImpl(IWorkerDataSource dataSource)
         {
             _workerDataSource = dataSource;
         }
-        public IEnumerable<Workers> LoadWorkers()
+        public IEnumerable<Worker> LoadWorkers()
         {
-            return _workerDataSource.FetchWorkers();
+            try
+            {
+                return _workerDataSource.FetchWorkers();
+            }
+            catch (Exception)
+            { 
+                return new Worker[]{};
+            }
         }
     }
 }
