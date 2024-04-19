@@ -1,7 +1,8 @@
 using System;
 using Data;
+using NSubstitute;
+using NSubstitute.ReturnsExtensions;
 using NUnit.Framework;
-using Tests.Mocks.Sources;
 using UseCases;
 
 namespace Tests.UseCases
@@ -16,10 +17,14 @@ namespace Tests.UseCases
             // Given
             const int expectedSalary = 40_000;
             const int expectedIncrease = 20_000;
-            
+
             var ceo = new Worker(firstName: "Fred", lastName: "Fredburger", position: Position.CEO,
                 seniority: Seniority.Senior);
-            var ceoCalculation = new CalculateCeoAnnualIncrease(salaryRepository: new SalaryRecordRepositoryImpl(new MockNonWorkerSalaryRecordSource()));
+            
+            var salaryRepository = Substitute.For<ISalaryRepository>();
+            salaryRepository.GetSalaryRecord(Arg.Any<Worker>()).ReturnsNull();
+            
+            var ceoCalculation = new CalculateCeoAnnualIncrease(salaryRepository: salaryRepository);
             
             // When
             var (updatedSalaryAmount, increaseAmount) = ceoCalculation.Calculate(worker: ceo); 
@@ -27,6 +32,7 @@ namespace Tests.UseCases
             // Then
             Assert.AreEqual(expectedSalary, updatedSalaryAmount);
             Assert.AreEqual(expectedIncrease, increaseAmount);
+            salaryRepository.Received(1).GetSalaryRecord(Arg.Any<Worker>());
         }
         
         [Test]
@@ -39,7 +45,11 @@ namespace Tests.UseCases
             
             var ceo = new Worker(firstName: "Fred", lastName: "Fredburger", position: Position.CEO,
                 seniority: Seniority.Senior);
-            var ceoCalculation = new CalculateCeoAnnualIncrease(salaryRepository: new SalaryRecordRepositoryImpl(new MockWorkerSalaryRecordSource()));
+            
+            var salaryRepository = Substitute.For<ISalaryRepository>();
+            salaryRepository.GetSalaryRecord(Arg.Any<Worker>()).Returns(new SalaryRecord(workerId: ceo.GetHashCode(), salary: 40_000));
+            
+            var ceoCalculation = new CalculateCeoAnnualIncrease(salaryRepository: salaryRepository);
             
             // When
             var (updatedSalaryAmount, increaseAmount) = ceoCalculation.Calculate(worker: ceo); 
@@ -47,6 +57,7 @@ namespace Tests.UseCases
             // Then
             Assert.AreEqual(expectedSalary, updatedSalaryAmount);
             Assert.AreEqual(expectedIncrease, increaseAmount);
+            salaryRepository.Received(1).GetSalaryRecord(Arg.Any<Worker>());
         }
     }
 }

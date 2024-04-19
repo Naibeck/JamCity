@@ -1,7 +1,9 @@
-﻿namespace Data
+﻿using JetBrains.Annotations;
+
+namespace Data
 {
     public interface ISalaryRepository
     {
-        SalaryRecord GetSalaryRecord(Worker worker);
+        [CanBeNull] SalaryRecord GetSalaryRecord(Worker worker);
     }
 }

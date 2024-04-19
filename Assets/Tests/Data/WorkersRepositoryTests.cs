@@ -1,6 +1,9 @@
+using System;
 using Data;
+using Data.Sources;
+using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
-using Tests.Mocks.Sources;
 
 namespace Tests.Data
 {
@@ -11,7 +14,8 @@ namespace Tests.Data
         public void EmployersShouldBeLoadedAsEmpty()
         {
             // Given
-            var emptyWorkers = new MockEmptyWorkersDataSource();
+            var emptyWorkers = Substitute.For<IWorkerDataSource>();
+            emptyWorkers.FetchWorkers().Returns(new Worker[] { });
             IWorkersRepository workersRepository = new WorkersRepositoryImpl(dataSource: emptyWorkers);
         
             // When
@@ -19,7 +23,7 @@ namespace Tests.Data
         
             // Then
             Assert.IsEmpty(result); 
-            Assert.IsTrue(emptyWorkers.Fetched); // Look for a mock library for unity or C# that could use the same behavior than verify times as mockk or mockito in Java/Kotlin
+            emptyWorkers.Received(1).FetchWorkers();
         }
         
         [Test]
@@ -53,7 +57,8 @@ namespace Tests.Data
                     seniority: Seniority.Senior
                 ),
             };
-            var workers = new MockWorkersDataSource(workers: expectedWorkers);
+            var workers = Substitute.For<IWorkerDataSource>();
+            workers.FetchWorkers().Returns(expectedWorkers);
             IWorkersRepository workersRepository = new WorkersRepositoryImpl(dataSource: workers);
             
             // When
@@ -62,14 +67,15 @@ namespace Tests.Data
             // Then
             Assert.IsNotEmpty(result);
             Assert.AreEqual(expectedWorkers, result);
-            Assert.IsTrue(workers.Fetched);
+            workers.Received(1).FetchWorkers();
         }
         
         [Test]
         public void EmployersShouldBeEmptyIfAnErrorHappens()
         {
             // Given
-            var workers = new MockCrashWorkersDataSource();
+            var workers = Substitute.For<IWorkerDataSource>();
+            workers.FetchWorkers().Throws(new Exception("Test crash"));
             IWorkersRepository workersRepository = new WorkersRepositoryImpl(dataSource: workers);
         
             // When
@@ -77,7 +83,7 @@ namespace Tests.Data
         
             // Then
             Assert.IsEmpty(result);
-            Assert.IsTrue(workers.Fetched);
+            workers.Received(1).FetchWorkers();
         }
     }
 }
