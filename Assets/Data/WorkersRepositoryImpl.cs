@@ -13,6 +13,7 @@ namespace Data
         {
             _workerDataSource = dataSource;
         }
+        
         public IEnumerable<Worker> LoadWorkers()
         {
             try

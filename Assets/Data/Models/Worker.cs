@@ -4,10 +4,10 @@ namespace Data
 {
     public class Worker
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public Position Position { get; set; }
-        public Seniority Seniority { get; set; }
+        public string FirstName { get; }
+        public string LastName { get; }
+        public Position Position { get; }
+        public Seniority Seniority { get; }
 
         
         public Worker(string firstName, string lastName, Position position, Seniority seniority)

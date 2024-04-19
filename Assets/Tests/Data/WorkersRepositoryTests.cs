@@ -2,7 +2,7 @@ using Data;
 using NUnit.Framework;
 using Tests.Mocks.Sources;
 
-namespace Tests
+namespace Tests.Data
 {
     public class WorkersRepositoryTests
     {
@@ -55,7 +55,7 @@ namespace Tests
             };
             var workers = new MockWorkersDataSource(workers: expectedWorkers);
             IWorkersRepository workersRepository = new WorkersRepositoryImpl(dataSource: workers);
-        
+            
             // When
             var result = workersRepository.LoadWorkers();
         
