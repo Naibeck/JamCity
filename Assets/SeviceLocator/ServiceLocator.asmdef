@@ -1,0 +1,4 @@
+{
+	"name": "ServiceLocator",
+	"references":[ "GUID:9873af76c50278444a28a63f22dd156c", "GUID:1405940e136750c4abfbe05fa0fd5485", "GUID:4c08d2c9416354d48adf905500403fe5" ]
+}

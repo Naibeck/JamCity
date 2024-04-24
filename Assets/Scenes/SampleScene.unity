@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2397852546466808961, guid: 8a95b7298f23dfd4aa7df13ac31299ab, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2397852546466808961, guid: 8a95b7298f23dfd4aa7df13ac31299ab, type: 3}
       propertyPath: m_LocalPosition.x
@@ -322,71 +322,13 @@ RectTransform:
   m_Children:
   - {fileID: 1269628111}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &466322345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 466322348}
-  - component: {fileID: 466322347}
-  - component: {fileID: 466322346}
-  m_Layer: 0
-  m_Name: ServiceLocator [Global]
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &466322346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466322345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1854066430}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dontDestroyOnLoad: 1
---- !u!114 &466322347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466322345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14fdc08a54f32a84fb9d8ffd34e269be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &466322348
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 466322345}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,50 +413,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &554293052
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 554293054}
-  - component: {fileID: 554293053}
-  m_Layer: 0
-  m_Name: CalculatePresenter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &554293053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554293052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f12da552f0f8c8841b48aacc9705fd64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &554293054
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554293052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &676092228
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +493,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676092228}
   m_CullTransparentMesh: 1
+--- !u!1 &763804615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7273772350020320206, guid: 8a95b7298f23dfd4aa7df13ac31299ab, type: 3}
+  m_PrefabInstance: {fileID: 198040428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &771618984
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,6 +587,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1269628111}
+  - component: {fileID: 1269628112}
   m_Layer: 5
   m_Name: Staff Calculation
   m_TagString: Untagged
@@ -714,6 +618,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1269628112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269628110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a814c625cd1c2f46848b23b569cb49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CalculatedText: {fileID: 676092230}
+  CalculateButton: {fileID: 1627623710}
 --- !u!1 &1443685756
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,7 +643,7 @@ GameObject:
   - component: {fileID: 1443685758}
   - component: {fileID: 1443685757}
   m_Layer: 0
-  m_Name: CalculateService
+  m_Name: CalculateModule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -743,9 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108670a5ea943594da93932a504ec5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CalculatedText: {fileID: 676092230}
-  CalculateButton: {fileID: 1627623710}
-  Presenter: {fileID: 554293052}
+  salaryDataSource: {fileID: 1158950839308710275}
+  staffDataSource: {fileID: 763804615}
 --- !u!4 &1443685758
 Transform:
   m_ObjectHideFlags: 0
@@ -759,7 +676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627623708
 GameObject:
@@ -963,20 +880,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762554381}
   m_CullTransparentMesh: 1
---- !u!115 &1854066430
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  serializedVersion: 5
-  m_Script: 
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_ExecutionOrder: 0
-  m_ClassName: ServiceLocatorGlobal
-  m_Namespace: SeviceLocator
 --- !u!1 &2055918918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,7 +946,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1158950839308710274
 PrefabInstance:
@@ -1054,7 +957,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4738248651719166765, guid: 4e5511941c0de424da3ad18b2527761a, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4738248651719166765, guid: 4e5511941c0de424da3ad18b2527761a, type: 3}
       propertyPath: m_LocalPosition.x
