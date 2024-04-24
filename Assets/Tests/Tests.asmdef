@@ -6,7 +6,8 @@
         "UnityEditor.TestRunner",
         "Data",
         "UseCases",
-        "TNRD.NSubstitute"
+        "TNRD.NSubstitute",
+        "Presenters"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
