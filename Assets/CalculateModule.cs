@@ -1,11 +1,8 @@
-using System;
 using Data;
 using Data.Sources;
 using Presenters;
 using SeviceLocator;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 using UseCases;
 
 public class CalculateModule : MonoBehaviour
