@@ -1,6 +1,7 @@
 ﻿using System;
 using Data;
 using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 using NUnit.Framework;
 using Presenters;
 using UseCases;
@@ -97,6 +98,36 @@ namespace Tests.Presenters
                     seniority: Seniority.Senior
                 ),
             });
+            
+            annualIncrease.Calculate(Arg.Any<Worker>()).Returns(new Tuple<double, double>(1000, 20));
+            
+            var presenter = new CalculatePresenterImpl(
+                repository: workerRepository,
+                hrIncrease: annualIncrease,
+                engineersIncrease: annualIncrease,
+                artistIncrease: annualIncrease,
+                designIncrease: annualIncrease,
+                pmsIncrease: annualIncrease,
+                ceoIncrease: annualIncrease
+            );
+            
+            // When
+            var result = presenter.OnCalculateSalary();
+            
+            // Then
+            Assert.AreEqual(expected, result);
+        }
+        
+        
+        [Test]
+        public void ProvideErrorMessageIfAnExceptionIsThrown()
+        {
+            // Given
+            const string expected = "Something went wrong";
+            var workerRepository = Substitute.For<IWorkersRepository>();
+            var annualIncrease = Substitute.For<ICalculateAnnualIncrease>();
+
+            workerRepository.LoadWorkers(sort: true).Throws(new Exception("Test exception"));
             
             annualIncrease.Calculate(Arg.Any<Worker>()).Returns(new Tuple<double, double>(1000, 20));
             

@@ -34,13 +34,21 @@ namespace Presenters
             _ceoIncrease = ceoIncrease;
         }
 
-        public string OnCalculateSalary() =>
-            _repository.LoadWorkers(sort: true)
-                .GroupBy(worker => worker.Position)
-                .OrderBy(group => group.Key)
-                .ToDictionary(group => group.Key, group => group.AsEnumerable())
-                .Select(position => FormatWorkerDepartmentIncreaseSalary(workers: position.Value))
-                .Aggregate((current, next) => current + "\n" + next);
+        public string OnCalculateSalary()
+        {
+           try {
+                return _repository.LoadWorkers(sort: true)
+                    .GroupBy(worker => worker.Position)
+                    .OrderBy(group => group.Key)
+                    .ToDictionary(group => group.Key, group => group.AsEnumerable())
+                    .Select(position => FormatWorkerDepartmentIncreaseSalary(workers: position.Value))
+                    .Aggregate((current, next) => current + "\n" + next);
+           }
+           catch (Exception e)
+           {
+               return "Something went wrong";
+           }
+        }
 
         private string FormatWorkerDepartmentIncreaseSalary(IEnumerable<Worker> workers)
         {
