@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Presenters;
 
 namespace Tests.Presenters
 {
@@ -7,7 +8,7 @@ namespace Tests.Presenters
         [Test]
         public void CalculateResultsShouldReturnANonEmptyString()
         {
-            var expected = "Salary was calculated from presenter";
+            const string expected = "Salary was calculated from presenter";
             var presenter = new CalculatePresenterImpl();
             var result = presenter.OnCalculateSalary();
             

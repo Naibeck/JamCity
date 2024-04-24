@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Presenters;
-using UnityEngine;
+using UseCases;
 
-public class CalculatePresenterImpl : ICalculatePresenter
+namespace Presenters
 {
-    public string OnCalculateSalary() => "Salary was calculated from presenter";
+    public class CalculatePresenterImpl : ICalculatePresenter
+    {
+        public string OnCalculateSalary() => "Salary was calculated from presenter";
+    }
 }

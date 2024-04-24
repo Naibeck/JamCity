@@ -3,7 +3,7 @@ using Data;
 
 namespace UseCases
 {
-    public interface CalculateAnnualIncrease
+    public interface ICalculateAnnualIncrease
     {
         Tuple<double, double> Calculate(Worker worker);
     }

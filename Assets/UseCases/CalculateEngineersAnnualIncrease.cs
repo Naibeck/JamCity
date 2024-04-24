@@ -3,7 +3,7 @@ using Data;
 
 namespace UseCases
 {
-    public class CalculateEngineersAnnualIncrease : CalculateAnnualIncrease
+    public class CalculateEngineersAnnualIncrease : ICalculateAnnualIncrease
     {
         private const int SrBaseSalary = 5_000;
         private const int SsrBaseSalary = 3_000;
