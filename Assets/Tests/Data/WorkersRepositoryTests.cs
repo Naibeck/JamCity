@@ -27,10 +27,10 @@ namespace Tests.Data
         }
         
         [Test]
-        public void EmployersShouldBeLoadedIfAnyIsAvailable()
+        public void WorkersShouldBeLoadedIfAnyIsAvailable()
         {
             // Given
-            var expectedWorkers =  new []
+            var expectedWorkers = new []
             {
                 new Worker(
                     firstName: "",
@@ -71,7 +71,7 @@ namespace Tests.Data
         }
         
         [Test]
-        public void EmployersShouldBeEmptyIfAnErrorHappens()
+        public void WorkersShouldBeEmptyIfAnErrorHappens()
         {
             // Given
             var workers = Substitute.For<IWorkerDataSource>();
@@ -84,6 +84,99 @@ namespace Tests.Data
             // Then
             Assert.IsEmpty(result);
             workers.Received(1).FetchWorkers();
+        }
+
+        [Test]
+        public void WorkersShouldBeOrderedBasedOnSeniority()
+        {
+            // Given
+            var unsortedWorkers = UnsortedWorkers();
+            var sortedWorkers = SortedWorkers();
+            var workers = Substitute.For<IWorkerDataSource>();
+            workers.FetchWorkers().Returns(unsortedWorkers);
+            IWorkersRepository workersRepository = new WorkersRepositoryImpl(dataSource: workers);
+            
+            // When
+            var result = workersRepository.LoadWorkers(sort: true);
+            
+            // Then
+            Assert.AreNotEqual(unsortedWorkers, result);
+            Assert.AreEqual(sortedWorkers, result);
+        }
+
+        private static Worker[] UnsortedWorkers()
+        {
+            return new []
+            {
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.CEO,
+                    seniority: Seniority.Senior
+                ),
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.Artist,
+                    seniority: Seniority.SemiSenior
+                ),
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.Design,
+                    seniority: Seniority.Junior
+                ),
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.Engineering,
+                    seniority: Seniority.Senior
+                ),
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.Engineering,
+                    seniority: Seniority.Junior
+                ),
+            };
+        }
+        
+        private static Worker[] SortedWorkers()
+        {
+            return new []
+            {
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.CEO,
+                    seniority: Seniority.Senior
+                ),
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.Engineering,
+                    seniority: Seniority.Senior
+                ),
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.Artist,
+                    seniority: Seniority.SemiSenior
+                ),
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.Design,
+                    seniority: Seniority.Junior
+                ),
+                
+                new Worker(
+                    firstName: "",
+                    lastName: "",
+                    position: Position.Engineering,
+                    seniority: Seniority.Junior
+                ),
+            };
         }
     }
 }

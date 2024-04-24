@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Data.Sources;
 
 namespace Data
@@ -14,11 +15,13 @@ namespace Data
             _workerDataSource = dataSource;
         }
         
-        public IEnumerable<Worker> LoadWorkers()
+        public IEnumerable<Worker> LoadWorkers(bool sort = false)
         {
             try
             {
-                return _workerDataSource.FetchWorkers();
+                return sort ? 
+                    _workerDataSource.FetchWorkers().OrderByDescending(worker => worker.Seniority) :
+                    _workerDataSource.FetchWorkers();
             }
             catch (Exception)
             { 

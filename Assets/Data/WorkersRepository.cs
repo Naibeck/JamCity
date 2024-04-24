@@ -4,6 +4,6 @@ namespace Data
 {
     public interface IWorkersRepository
     {
-        IEnumerable<Worker> LoadWorkers();
+        IEnumerable<Worker> LoadWorkers(bool sort = false);
     }
 }

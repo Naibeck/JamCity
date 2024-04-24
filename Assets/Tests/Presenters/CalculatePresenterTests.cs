@@ -10,7 +10,7 @@ namespace Tests.Presenters
     public class CalculatePresenterTests
     {
         [Test]
-        public void CalculateResultsShouldReturnANonEmptyString()
+        public void CalculateWorkersTotalSalaryForDepartment()
         {
             // Given
             const string expected = "HR Workers: 2 total salary: 2000\n" +
@@ -22,7 +22,7 @@ namespace Tests.Presenters
             var workerRepository = Substitute.For<IWorkersRepository>();
             var annualIncrease = Substitute.For<ICalculateAnnualIncrease>();
 
-            workerRepository.LoadWorkers().Returns(new[]
+            workerRepository.LoadWorkers(sort: true).Returns(new[]
             {
                 new Worker(
                     firstName: "1",
