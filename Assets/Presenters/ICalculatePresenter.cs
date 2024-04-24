@@ -4,6 +4,6 @@ namespace Presenters
 {
     public interface ICalculatePresenter
     {
-        public String OnCalculateSalary();
+        public string OnCalculateSalary();
     }
 }

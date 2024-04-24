@@ -7,7 +7,7 @@ namespace Data
     public class SalaryRecordRepositoryImpl : ISalaryRepository
     {
 
-        private ISalaryRecordDataSource _salaryRecordDataSource;
+        private readonly ISalaryRecordDataSource _salaryRecordDataSource;
         
         public SalaryRecordRepositoryImpl(ISalaryRecordDataSource dataSource)
         {

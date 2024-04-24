@@ -8,13 +8,13 @@ namespace Presenters
 {
     public class CalculatePresenterImpl : ICalculatePresenter
     {
-        private IWorkersRepository _repository;
-        private ICalculateAnnualIncrease _hrIncrease;
-        private ICalculateAnnualIncrease _engineersIncrease;
-        private ICalculateAnnualIncrease _artistIncrease;
-        private ICalculateAnnualIncrease _designIncrease;
-        private ICalculateAnnualIncrease _pmsIncrease;
-        private ICalculateAnnualIncrease _ceoIncrease;
+        private readonly IWorkersRepository _repository;
+        private readonly ICalculateAnnualIncrease _hrIncrease;
+        private readonly ICalculateAnnualIncrease _engineersIncrease;
+        private readonly ICalculateAnnualIncrease _artistIncrease;
+        private readonly ICalculateAnnualIncrease _designIncrease;
+        private readonly ICalculateAnnualIncrease _pmsIncrease;
+        private readonly ICalculateAnnualIncrease _ceoIncrease;
         
         public CalculatePresenterImpl(
             IWorkersRepository repository,

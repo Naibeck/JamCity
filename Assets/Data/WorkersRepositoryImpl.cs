@@ -7,7 +7,7 @@ namespace Data
     public class WorkersRepositoryImpl : IWorkersRepository
     {
 
-        private IWorkerDataSource _workerDataSource;
+        private readonly IWorkerDataSource _workerDataSource;
         
         public WorkersRepositoryImpl(IWorkerDataSource dataSource)
         {

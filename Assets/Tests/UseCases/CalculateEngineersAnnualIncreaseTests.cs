@@ -80,7 +80,6 @@ namespace Tests.UseCases
             var (jrUpdatedSalaryAmount, jrIncreaseAmount) = artistCalculation.Calculate(worker: jrEngineer); 
             
             // Then
-            // Then
             Assert.AreEqual(expectedSrSalary, srUpdatedSalaryAmount);
             Assert.AreEqual(expectedSrIncrease, srIncreaseAmount);
             
