@@ -4,7 +4,7 @@ using Data;
 using Data.Sources;
 using UnityEngine;
 
-public class StaffDataSource : MonoBehaviour, IWorkerDataSource
+public class StaffDataSource : MonoBehaviour, IWorkerDataSource 
 {
 
     // HR

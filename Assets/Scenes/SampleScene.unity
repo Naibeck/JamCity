@@ -411,7 +411,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &676092228
 GameObject:
@@ -493,11 +493,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676092228}
   m_CullTransparentMesh: 1
---- !u!1 &763804615 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7273772350020320206, guid: 8a95b7298f23dfd4aa7df13ac31299ab, type: 3}
-  m_PrefabInstance: {fileID: 198040428}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &771618984
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +573,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771618984}
   m_CullTransparentMesh: 1
+--- !u!1 &860505583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4603687677275750256, guid: 8a95b7298f23dfd4aa7df13ac31299ab, type: 3}
+  m_PrefabInstance: {fileID: 198040428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1269628110
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaryDataSource: {fileID: 1158950839308710275}
-  staffDataSource: {fileID: 763804615}
+  staffDataSource: {fileID: 860505583}
 --- !u!4 &1443685758
 Transform:
   m_ObjectHideFlags: 0
@@ -676,7 +676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1627623708
 GameObject:

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Presenters;
 using SeviceLocator;
 using UnityEngine;
@@ -11,7 +9,6 @@ public class StaffCalculationView : MonoBehaviour
     public Button CalculateButton;
     
     private ICalculatePresenter _presenter;
-
     
     // Start is called before the first frame update
     void Start()

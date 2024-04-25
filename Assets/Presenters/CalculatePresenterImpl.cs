@@ -44,7 +44,7 @@ namespace Presenters
                     .Select(position => FormatWorkerDepartmentIncreaseSalary(workers: position.Value))
                     .Aggregate((current, next) => current + "\n" + next);
            }
-           catch (Exception e)
+           catch (Exception _)
            {
                return "Something went wrong";
            }

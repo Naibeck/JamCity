@@ -2,7 +2,7 @@
 
 namespace Presenters
 {
-    public interface ICalculatePresenter
+    public interface ICalculatePresenter 
     {
         public string OnCalculateSalary();
     }
